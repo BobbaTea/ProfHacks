@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO
 from pymongo import MongoClient
-from bson.json_util import dumps
+from bson.json_util import dumps, loads
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -12,7 +12,8 @@ messages = MongoClient()["crisisconnect"]["messages"]
 def index():
     return render_template("dash.html")
 
-@app.route('/map')
+
+@app.route("/map")
 def servemap():
     return render_template("website.html")
 
@@ -24,10 +25,11 @@ def takebigshit():
 
 @socketio.on("server new message")
 def accept_new_message(payload):
-    messages.insert_one(payload)
-    socketio.emit('frontend new message', dumps(payload))
+    messages.insert_one(loads(str(payload)))
+    socketio.emit("frontend new message", dumps(payload))
 
-@socketio.on('connect')
+
+@socketio.on("connect")
 def verifyconnect():
     print("You have connected!")
 
