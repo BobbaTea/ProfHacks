@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">-->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+    <link rel="stylesheet" href="dash.css">
+
+    <title>Title Here</title>
+</head>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Brand</a>
+        </div>
+    </div>
+</nav>
+
+<body>
+    <br>
+    <div class="container">
+        <div class="card py-2 px-2">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#requests">Rescue Requests</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#log">Connection Log</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#map">Map</a>
+                </li>
+            </ul>
+            <div id="my-tab-content" class="tab-content">
+                <div class="tab-pane active" id="requests">
+                    <div class="list-group list-group-flush emergencies">
+
+                        <a class="list-group-item list-group-item-action list-group-item-danger collapsed" data-toggle="collapse"
+                            href="#collapseExample1" role="button">Link with href<span class="mr-3"></span>
+                            <div class="collapse" id="collapseExample1">
+                                <div class="card card-body mt-2 mb-3 mx-3">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                    richardson ad
+                                    squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                                    sapiente
+                                    ea proident.
+                                </div>
+                            </div>
+                        </a>
+                        <a class="list-group-item list-group-item-action list-group-item-danger collapsed" data-toggle="collapse"
+                            href="#collapseExample1" role="button">Link with href<span class="mr-3"></span>
+                            <div class="collapse" id="collapseExample1">
+                                <div class="card card-body mt-2 mb-3 mx-3">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                    richardson ad
+                                    squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
+                                    sapiente
+                                    ea proident.
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                <div class="tab-pane" id="log">
+                    <div class="container">
+                        <br>
+                        <h5> <span class="badge badge-secondary">Connection: 12/12/19 13:24:23 12.233.10.1 </span></h2>
+                            <h5> <span class="badge badge-secondary">Connection: 12/12/19 13:24:23 12.233.10.1 </span></h2>
+
+                    </div>
+                </div>
+                <div class="tab-pane" id="map">
+                    <div class="container">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+
+    <script src="dash.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
