@@ -17,7 +17,7 @@
 
 // $('.dropdown-trigger').dropdown();
 
-var socket = io.connect('http://34.73.208.146:8080');
+var socket = io.connect('http://34.73.208.146');
 
 socket.emit('server new message', "hi")
 socket.on('frontend new message', onmessage);
