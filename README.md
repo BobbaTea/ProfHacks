@@ -1,2 +1,3 @@
 # ProfHacks
-First Blood (a.k.a first commit)
+This is the project for Profhacks 2019
+
