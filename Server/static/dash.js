@@ -19,7 +19,6 @@
 
 var socket = io.connect('http://34.73.208.146');
 
-socket.emit('server new message', "hi")
 socket.on('frontend new message', onmessage);
 var increment = 0;
 function onmessage(data) {

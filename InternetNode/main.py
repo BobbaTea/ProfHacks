@@ -3,7 +3,9 @@ import socketio
 from InternetNode.app import app
 from os import system as shell
 from pymongo import MongoClient
+from bson.json_util import dumps
 import requests
+from time import sleep
 
 database = MongoClient()["crisisconnect"]
 messages = database["messages"]
@@ -32,16 +34,6 @@ def handle_new_message(payload):
         + "\n"
     )
     messages.insert_one(payload)
-
-
-@sioclient.on("dump")
-def dump_to_server():
-    shell("nmcli con up ProfHacks_2019")
-    siodump = socketio.Client()
-    siodump.connect("http://34.73.208.146")
-    for i in messages.find():
-        siodump.emit("server new message", i)
-    shell("nmcli con up Crisis")
 
 
 if __name__ == "__main__":
