@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO
 from pymongo import MongoClient
-from bson.json_util import loads 
+from bson.json_util import dumps
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -24,9 +24,8 @@ def takebigshit():
 
 @socketio.on("server new message")
 def accept_new_message(payload):
-    payload = loads(str(payload))
     messages.insert_one(payload)
-    socketio.emit('frontend new message', payload)
+    socketio.emit('frontend new message', dumps(payload))
 
 
 if __name__ == "__main__":
