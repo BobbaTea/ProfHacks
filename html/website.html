@@ -23,6 +23,10 @@
     <script>
 
       var locations = [
+        {lat: 39.812880, lng:-75.221700},
+        {lat: 39.512895, lng:-75.421720},
+        {lat: 39.712870, lng:-75.321680},
+        {lat: 39.112880, lng:-75.321700},
 
       ]
 
@@ -30,21 +34,21 @@
 
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 3,
-          center: {lat: -28.024, lng: 140.887}
+          center: {lat: locations[0].lat, lng: locations[0].lng}
         });
 
         // Create an array of alphabetical characters used to label the markers.
         var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-        var i=0;
-        while(i<5){
-          var latitude=prompt("Enter latitude");
-          var long=prompt("Enter longitude");
-          var position = new google.maps.LatLng(latitude,long);
-          locations.push(position);
-          console.log(locations);
-          i++;
-        }
+        // var i=0;
+        // while(i<5){
+        //   var latitude=prompt("Enter latitude");
+        //   var long=prompt("Enter longitude");
+        //   var position = new google.maps.LatLng(latitude,long);
+        //   locations.push(position);
+        //   console.log(locations);
+        //   i++;
+        // }
 
 
         // Add some markers to the map.
