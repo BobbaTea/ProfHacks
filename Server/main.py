@@ -11,6 +11,10 @@ messages = MongoClient()["crisisconnect"]["messages"]
 def index():
     return render_template("dash.html")
 
+@app.route('/map')
+def servemap():
+    return render_template("website.html")
+
 
 @app.route("/datadump")
 def takebigshit():
