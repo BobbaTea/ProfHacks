@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_socketio import SocketIO
 from pymongo import MongoClient
 from bson.json_util import dumps, loads
@@ -17,10 +17,14 @@ def index():
 def servemap():
     return render_template("website.html")
 
-
-@app.route("/datadump")
-def takebigshit():
-    return str(list(messages.find()))
+@app.route("/datadump", methods=['GET', 'POST'])
+def datadump():
+    print("Datadumping")
+    if request.method == 'GET':
+        return str(list(messages.find()))
+    else:
+        print("Found post request")
+        print(loads(request.data))
 
 
 @socketio.on("server new message")
