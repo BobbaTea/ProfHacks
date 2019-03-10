@@ -11,6 +11,9 @@ messages = MongoClient()["crisisconnect"]["messages"]
 def index():
     return render_template("website.html")
 
+@socketio.on('connect')
+def confirmconnect():
+    print("You have connected")
 
 @app.route("/datadump")
 def takebigshit():
@@ -20,6 +23,7 @@ def takebigshit():
 @socketio.on("server new message")
 def accept_new_message(payload):
     messages.insert_one(payload)
+    socketio.emit('frontend new message', payload)
 
 
 if __name__ == "__main__":

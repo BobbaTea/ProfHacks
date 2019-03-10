@@ -28,11 +28,10 @@ def handle_new_message(payload):
 def dump_to_server():
     shell('nmcli con up ProfHacks_2019')
     siodump = socketio.Client()
-    siodump.connect("http://")
+    siodump.connect("http://34.73.208.146")
     for i in messages.find():
-
-        messages.delete_one(i)
-    
+        siodump.emit('server new message', i)
+    shell('nmcli con up Crisis')
 
 if __name__ == "__main__":
     sioclient.connect("http://10.42.0.1")
