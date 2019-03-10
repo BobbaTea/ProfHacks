@@ -21,7 +21,7 @@ def accept_new_message(payload):
     print("New Message from " + payload["name"] + " at " + payload['timestamp']
           + ": " + payload['data'] + "\n Geolocation data: "
           + str(payload['geolocation']) + "\n")
-    socketio.emit('output-node new message',  broadcast=True)
+    socketio.emit('output-node new message',  payload, broadcast=True)
 
 
 if __name__ == "__main__":

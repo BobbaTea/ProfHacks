@@ -1,3 +1,3 @@
 export default constants = {
-    dragonIP: "http://localhost:5000"
+    dragonIP: "http://10.42.0.1"
 };
