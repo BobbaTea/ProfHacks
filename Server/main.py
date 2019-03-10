@@ -9,11 +9,8 @@ messages = MongoClient()["crisisconnect"]["messages"]
 
 @app.route("/")
 def index():
-    return render_template("website.html")
+    return render_template("dash.html")
 
-@socketio.on('connect')
-def confirmconnect():
-    print("You have connected")
 
 @app.route("/datadump")
 def takebigshit():
