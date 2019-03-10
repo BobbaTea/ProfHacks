@@ -1,6 +1,13 @@
 from flask_socketio import SocketIO
 import socketio
 from InternetNode.app import app
+from os import system as shell
+from pymongo import MongoClient
+import requests
+
+database = MongoClient()['crisisconnect']
+messages = database['messages']
+
 
 flasksocketio = SocketIO(app)
 sioclient = socketio.Client()
@@ -15,7 +22,17 @@ def handle_new_message(payload):
     print("New Message from " + payload["name"] + " at " + payload['timestamp']
           + ": " + payload['data'] + "\n Geolocation data: "
           + str(payload['geolocation']) + "\n")
+    messages.insert_one(payload)
 
+@sioclient.on('dump')
+def dump_to_server():
+    shell('nmcli con up ProfHacks_2019')
+    siodump = socketio.Client()
+    siodump.connect("http://")
+    for i in messages.find():
+
+        messages.delete_one(i)
+    
 
 if __name__ == "__main__":
     sioclient.connect("http://10.42.0.1")
