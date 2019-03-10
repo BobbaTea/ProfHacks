@@ -27,6 +27,10 @@ def accept_new_message(payload):
     messages.insert_one(payload)
     socketio.emit('frontend new message', dumps(payload))
 
+@socketio.on('connect')
+def verifyconnect():
+    print("You have connected!")
+
 
 if __name__ == "__main__":
     socketio.run(app, host="0.0.0.0", port="80")
