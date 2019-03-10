@@ -24,7 +24,9 @@ def datadump():
         return str(list(messages.find()))
     else:
         print("Found post request")
-        print(loads(request.data))
+        data = loads(request.data)
+        for message in data:
+            print(message)
 
 
 @socketio.on("server new message")
