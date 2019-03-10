@@ -25,7 +25,8 @@ def takebigshit():
 
 @socketio.on("server new message")
 def accept_new_message(payload):
-    messages.insert_one(loads(str(payload)))
+    print(payload)
+    messages.insert_one(payload)
     socketio.emit("frontend new message", dumps(payload))
 
 
