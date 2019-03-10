@@ -22,6 +22,10 @@ client.open('GET', '/datadump', false);
 client.send();
 console.log(client.responseText);
 
+init = JSON.parse(responseText)
+init.
+
+
 var socket = io.connect('http://34.73.208.146');
 
 
