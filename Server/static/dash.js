@@ -17,7 +17,14 @@
 
 // $('.dropdown-trigger').dropdown();
 
+var client = new XMLHttpRequest();
+client.open('GET', '/datadump', false);
+client.send();
+console.log(client.responseText);
+
 var socket = io.connect('http://34.73.208.146');
+
+
 
 socket.on('frontend new message', onmessage);
 var increment = 0;
