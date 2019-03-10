@@ -17,13 +17,17 @@
 
 // $('.dropdown-trigger').dropdown();
 
-var socket = io.connect('http://noiceml.com:8888');
+var socket = io.connect('http://34.73.208.146:8080');
 
-socket.on('message', onmessage);
+socket.emit('server new message', "hi")
+socket.on('frontend new message', onmessage);
 var increment = 0;
 function onmessage(data) {
     console.log(data)
     var obj = JSON.parse(data)
     document.getElementsByClassName('emergencies')[0].innerHTML = "<a class='list-group-item list-group-item-action list-group-item-danger collapsed' data-toggle='collapse' href='#val"+increment+"' role='button'>"+obj.name+"<span class='mr-3'></span><div class='collapse' id='val"+increment+"'><div class='card card-body mt-2 mb-3 mx-3'>"+obj.timestamp+": "+obj.message+"</div></div></a>" + document.getElementsByClassName('emergencies')[0].innerHTML;
+    document.getElementById('mappy').contentWindow.location.reload();
+    var ifr = document.getElementById('mappy');
+    ifr.src = ifr.src;
 }
 
