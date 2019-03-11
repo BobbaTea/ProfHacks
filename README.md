@@ -21,9 +21,14 @@ Using a mesh network of Dragonboard's (or for that matter any small computing no
 
 ## Technologies
 GCP Cloud Instance
+
 Flask
+
 Python
+
 Socket.io
+
 DragonBoard 410c
+
 React Native
 
