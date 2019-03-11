@@ -1,5 +1,4 @@
-# ProfHacks 2019
-# Crisis Connect
+# ProfHacks 2019 - Crisis Connect
 
 ## Members
 Akash Bobba
