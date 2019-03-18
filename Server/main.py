@@ -10,7 +10,7 @@ messages = MongoClient()["crisisconnect"]["messages"]
 
 @app.route("/")
 def index():
-    return render_template("dash.html")
+    return render_template("index.html")
 
 
 @app.route("/map")
@@ -23,10 +23,8 @@ def datadump():
     if request.method == 'GET':
         return str(list(messages.find()))
     else:
-        print("Found post request")
         data = loads(request.data)
-        for message in data:
-            print(message)
+        print(data)
 
 
 @socketio.on("server new message")

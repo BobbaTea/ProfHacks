@@ -10,7 +10,6 @@ import { createStackNavigator } from 'react-navigation';
 import Login from './screens/login-screen';
 import Home from './screens/home-screen';
 
-
 export default App = createStackNavigator(
     {
         Login: {

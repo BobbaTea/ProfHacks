@@ -10,7 +10,7 @@ messages = MongoClient()["crisisconnect"]["messages"]
 
 
 def dump_to_server():
-    requests.post("http://34.73.208.146/datadump", json=dumps(messages.find()))
+    requests.post("http://34.73.208.146/datadump", json=dumps(list(messages.find())))
 
 
 dump_to_server()
